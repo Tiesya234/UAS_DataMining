@@ -337,7 +337,81 @@ Visualisasi confusion matrix dilakukan terhadap tiga model dengan performa terba
 * AdaBoost menunjukkan performa yang sedikit lebih baik dalam mengidentifikasi kelas 1, dengan 2 data berhasil diprediksi benar sebagai kelas 1. Meskipun jumlah kesalahan prediksi masih cukup tinggi (18 data kelas 1 diprediksi sebagai kelas 0), model ini tetap memiliki keunggulan karena dapat mengenali keberadaan kedua kelas dalam data.
 
 # Rencana Pengembangan Sistem Kedepan
+
+Berdasarkan proses analisis data dan hasil evaluasi model prediksi status Drop Out (DO) mahasiswa, terdapat beberapa potensi pengembangan lanjutan yang relevan dengan tahapan yang telah dilakukan. Pengembangan ini bertujuan untuk meningkatkan akurasi prediksi, menyeimbangkan performa antar kelas, serta mendukung penerapan sistem secara nyata. Berikut beberapa rencana pengembangan ke depan:
+
+## 1. Penanganan Class Imbalance
+
+Berdasarkan hasil confusion matrix, terlihat bahwa beberapa model, terutama Random Forest dan XGBoost, gagal mengenali mahasiswa yang DO (kelas 1). Ini menunjukkan adanya masalah class imbalance.
+
+Rencana pengembangan:
+
+* Mengimplementasikan teknik oversampling, seperti SMOTE, untuk menambah jumlah data dari kelas minoritas.
+* Menggunakan class weight adjustment pada algoritma seperti Random Forest atau XGBoost untuk meningkatkan sensitivitas terhadap kelas DO.
+* Menerapkan undersampling secara selektif jika dibutuhkan.
+
+## 2. Fine-Tuning Model (Hyperparameter Optimization)
+
+Model saat ini menggunakan parameter default. Untuk meningkatkan performa:
+
+* Diterapkan GridSearchCV atau RandomizedSearchCV pada model terbaik (terutama AdaBoost) untuk mencari kombinasi parameter yang optimal.
+* Evaluasi akan berfokus pada metrik selain akurasi, seperti F1-score, agar model lebih seimbang dalam klasifikasi antar kelas.
+
+## 3. Analisis Fitur Lanjutan
+
+Fitur yang digunakan saat ini telah diseleksi dengan SelectKBest. Pengembangan ke depan meliputi:
+
+* Eksperimen dengan metode seleksi fitur lain seperti Recursive Feature Elimination (RFE).
+* Melakukan pembobotan fitur berdasarkan pengaruhnya terhadap prediksi menggunakan `feature_importances_` pada tree-based models.
+
+## 4. Visualisasi dan Interpretabilitas Model melalui Streamlit
+
+Untuk meningkatkan transparansi dan kemudahan penggunaan sistem prediksi status Drop Out, akan dikembangkan dashboard interaktif berbasis Streamlit. Dashboard ini tidak hanya menampilkan hasil prediksi, tetapi juga memberikan interpretasi mendalam terhadap keputusan model menggunakan SHAP (SHapley Additive Explanations).
+
+### Rencana Implementasi:
+
+#### a. Integrasi dengan SHAP
+
+* Menggunakan library SHAP untuk menghitung kontribusi masing-masing fitur terhadap prediksi individu.
+* Visualisasi SHAP summary plot, force plot, dan decision plot untuk menjelaskan alasan di balik keputusan model (misalnya, mengapa seorang mahasiswa diprediksi akan DO).
+
+#### b. Pembuatan Dashboard dengan Streamlit
+
+* Tampilan interaktif untuk:
+
+  * Upload data mahasiswa baru.
+  * Lihat hasil prediksi status DO (0 atau 1).
+  * Tampilkan faktor risiko utama yang berkontribusi terhadap prediksi.
+  * Visualisasi interpretatif (force plot atau bar plot SHAP).
+
+#### c. Fitur pada Dashboard
+
+| Fitur           | Deskripsi                                  |
+| --------------- | ------------------------------------------ |
+| Upload File     | Upload file CSV mahasiswa baru             |
+| Hasil Prediksi  | Tampilkan status DO (0 = Tidak DO, 1 = DO) |
+| SHAP Summary    | Visualisasi global untuk semua fitur       |
+| SHAP Individual | Interpretasi spesifik untuk tiap mahasiswa |
+| Export Laporan  | Unduh hasil prediksi dan interpretasi      |
+
+#### d. Contoh Visualisasi
+
+* `shap.summary_plot()` → menunjukkan fitur paling berpengaruh secara global.
+* `shap.force_plot()` → menjelaskan prediksi individu (kenapa mahasiswa X diprediksi DO).
+* `st.pyplot()` → integrasi dengan Streamlit untuk menampilkan plot SHAP langsung di web app.
+
+#### e. Deployment
+
+* Deploy ke platform seperti Streamlit Cloud untuk kemudahan akses.
+* Memberi akses bagi dosen pembimbing atau bagian akademik untuk melakukan analisis mandiri terhadap risiko mahasiswa.
+
+
 # Kesimpulan
 
+Proyek ini berhasil membangun sistem prediksi risiko drop out mahasiswa berbasis machine learning menggunakan data akademik dan sosial ekonomi. Dari beberapa model yang diuji, AdaBoost menunjukkan performa terbaik dengan akurasi 80%, serta mampu memberikan keseimbangan yang relatif baik antara pengenalan mahasiswa yang DO dan tidak DO.
+
+Analisis univariat dan seleksi fitur mengungkap bahwa variabel seperti IPK, penghasilan orang tua, dan status beasiswa merupakan faktor signifikan yang memengaruhi potensi drop out. Hasil ini menunjukkan bahwa model tidak hanya mampu memprediksi, tetapi juga membantu mengidentifikasi faktor risiko utama.
+
+Meskipun terdapat kendala class imbalance yang memengaruhi sensitivitas model terhadap kelas DO, evaluasi yang dilakukan menunjukkan bahwa pendekatan ini layak dikembangkan lebih lanjut. Sistem ini berpotensi digunakan oleh institusi pendidikan sebagai alat bantu untuk deteksi dini dan pengambilan keputusan intervensi yang lebih tepat sasaran.
 
 
