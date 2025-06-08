@@ -57,10 +57,16 @@ Proyek ini menggunakan pendekatan metode data mining berbasis **CRISP-DM (Cross-
    Melakukan pembersihan data, penanganan data hilang (missing values), normalisasi, encoding variabel kategorikal, dan transformasi data agar siap digunakan dalam pemodelan.
 
 4. **Modeling**  
-   Membangun model prediksi dengan menggunakan teknik klasifikasi untuk mengidentifikasi mahasiswa berisiko tinggi. Beberapa algoritma yang digunakan antara lain:
-   - **Random Forest:** Metode ensemble berbasis pohon keputusan yang efektif untuk data berdimensi tinggi dan dapat mengatasi missing value.
-   - **XGBoost (Extreme Gradient Boosting):** Teknik boosting yang memperbaiki kelemahan model iterasi sebelumnya dengan hasil akurasi tinggi dan pengendalian overfitting.
-   - **AdaBoost (Adaptive Boosting):** Teknik boosting yang memfokuskan pembelajaran pada data yang sulit diklasifikasikan sebelumnya, berguna untuk menangani data minoritas.
+   Pada tahap modeling, dilakukan pembangunan model prediksi untuk mengidentifikasi mahasiswa yang berisiko mengalami drop out menggunakan beberapa algoritma klasifikasi dengan pendekatan dan keunggulan berbeda. Enam model yang dipilih adalah sebagai berikut:
+
+* Random Forest: Metode ensemble berbasis pohon keputusan yang efektif untuk data berdimensi tinggi dan mampu mengatasi missing value.
+* XGBoost (Extreme Gradient Boosting): Teknik boosting yang memperbaiki kelemahan model iterasi sebelumnya dengan hasil akurasi tinggi dan kemampuan pengendalian overfitting.
+* K-Nearest Neighbors (KNN): Algoritma berbasis instance yang memprediksi kelas berdasarkan kedekatan data tetangga terdekat dalam ruang fitur.
+* Decision Tree: Model pohon keputusan yang sederhana dan mudah diinterpretasikan, tetapi rentan terhadap overfitting.
+* Gradient Boosting: Teknik boosting yang menggabungkan beberapa model pohon keputusan lemah untuk menghasilkan model kuat dengan akurasi tinggi.
+* AdaBoost (Adaptive Boosting): Teknik boosting yang memfokuskan pembelajaran pada data yang sulit diklasifikasikan sebelumnya, berguna untuk menangani data minoritas.
+
+Setiap model diinisialisasi dengan parameter dasar dan menggunakan `random_state` untuk memastikan hasil yang reproducible.
 
 5. **Evaluation**  
    Mengevaluasi performa model menggunakan metrik seperti Accuracy, Precision, Recall, F1-Score, dan Confusion Matrix untuk memastikan model dapat mengidentifikasi mahasiswa berisiko secara akurat.
