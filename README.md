@@ -231,6 +231,64 @@ Fitur yang terpilih berdasarkan hasil seleksi adalah:
 Fitur-fitur ini mencerminkan bahwa baik faktor akademik (seperti IPK dan pengulangan mata kuliah) maupun faktor sosial-ekonomi (seperti penghasilan dan tanggungan keluarga) memiliki peran penting dalam menentukan potensi mahasiswa untuk mengalami DO. Pemilihan fitur ini bertujuan untuk meningkatkan akurasi model sekaligus mengurangi kompleksitas komputasi.
 
 # Modelling
+
+Tahapan modelling dilakukan untuk membangun model prediksi status Drop Out (DO) mahasiswa berdasarkan fitur-fitur yang telah melalui proses preprocessing. Terdapat tiga langkah utama dalam proses ini, yaitu pembagian dataset, pemilihan model, dan pelatihan model.
+
+## 1. Pembagian Dataset
+
+Setelah proses preprocessing, fitur (X) dan target (y) dipisahkan:
+
+```python
+X = mahasiswa_df_copy.drop(['status_do', 'nim'], axis=1)
+y = mahasiswa_df_copy['status_do']
+```
+
+Kemudian, data dibagi menjadi 80% data latih dan 20% data uji menggunakan `train_test_split`:
+
+```python
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.2, random_state=42
+)
+```
+
+Output:
+
+```
+Total data: 500, Train: 400, Test: 100
+```
+
+Pembagian ini memastikan model dapat dilatih dan diuji secara terpisah untuk menghindari overfitting dan meningkatkan generalisasi.
+
+## 2. Pemilihan dan Inisialisasi Model
+
+Enam algoritma klasifikasi dipilih karena memiliki pendekatan dan keunggulan berbeda. Model-model tersebut didefinisikan sebagai berikut:
+
+```python
+models = {
+    "Random Forest": RandomForestClassifier(...),
+    "XGBoost": XGBClassifier(...),
+    "K-Nearest Neighbors": KNeighborsClassifier(...),
+    "Decision Tree": DecisionTreeClassifier(...),
+    "Gradient Boosting": GradientBoostingClassifier(...),
+    "AdaBoost": AdaBoostClassifier(...)
+}
+```
+
+Setiap model diinisialisasi dengan parameter dasar dan `random_state` untuk memastikan reproducibility.
+
+## 3. Pelatihan Model
+
+Semua model kemudian dilatih secara berurutan menggunakan data latih. Proses pelatihan dilakukan dengan:
+
+```python
+for model_name, model_instance in models.items():
+    model_instance.fit(X_train, y_train)
+    trained_models[model_name] = model_instance
+```
+
+Setiap model yang telah dilatih disimpan untuk dievaluasi pada tahap selanjutnya. Proses ini memungkinkan perbandingan performa antar model untuk menentukan model terbaik dalam memprediksi status DO mahasiswa.
+
+
 # Evaluasi Model
 # Rencana Pengembangan Sistem Kedepan
 # Kesimpulan
