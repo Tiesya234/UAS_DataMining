@@ -288,8 +288,48 @@ for model_name, model_instance in models.items():
 
 Setiap model yang telah dilatih disimpan untuk dievaluasi pada tahap selanjutnya. Proses ini memungkinkan perbandingan performa antar model untuk menentukan model terbaik dalam memprediksi status DO mahasiswa.
 
-
 # Evaluasi Model
+
+Tahapan evaluasi dilakukan untuk mengukur kinerja masing-masing model yang telah dilatih pada data uji. Evaluasi dilakukan dengan menghitung sejumlah metrik performa klasifikasi, yaitu Accuracy, Precision, Recall, F1-Score, dan Confusion Matrix.
+
+## 1. Prediksi Data Uji
+
+Setiap model yang telah dilatih digunakan untuk memprediksi data uji (`X_test`). Hasil prediksi tersebut dibandingkan dengan label sebenarnya (`y_test`) untuk menghitung metrik performa.
+
+```python
+y_pred = model.predict(X_test)
+```
+
+## 2. Penghitungan Metrik Evaluasi
+
+Untuk setiap model, dilakukan penghitungan metrik-metrik evaluasi berikut:
+
+* Accuracy: Mengukur proporsi prediksi yang benar dari keseluruhan data uji.
+* Precision (weighted): Mengukur ketepatan prediksi terhadap kelas positif, dengan bobot berdasarkan jumlah data tiap kelas.
+* Recall (weighted): Mengukur seberapa baik model menangkap semua data dari masing-masing kelas.
+* F1-Score (weighted): Rata-rata harmonis antara precision dan recall.
+* Confusion Matrix: Matriks yang menunjukkan jumlah prediksi benar dan salah dari masing-masing kelas.
+
+### 3. Hasil Evaluasi Model
+
+Berdasarkan evaluasi dengan syarat `if metrics["Accuracy"] >= 0.80`, terdapat tiga model yang memenuhi kriteria:
+
+| Model         | Accuracy | Precision | Recall | F1-Score |
+| ------------- | -------- | --------- | ------ | -------- |
+| Random Forest | 0.8000   | 0.6400    | 0.8000 | 0.7111   |
+| XGBoost       | 0.8000   | 0.6400    | 0.8000 | 0.7111   |
+| AdaBoost      | 0.8000   | 0.7500    | 0.8000 | 0.7424   |
+
+Ketiga model tersebut lolos seleksi awal karena memiliki nilai akurasi ≥ 0.80. Namun, dari ketiga model tersebut, AdaBoost merupakan yang paling stabil dan optimal karena memiliki nilai precision dan f1-score tertinggi. Hal ini menunjukkan bahwa model ini lebih baik dalam menangani keseimbangan antara false positives dan false negatives.
+
+4. Visualisasi Confusion Matrix
+
+Visualisasi confusion matrix dilakukan terhadap tiga model dengan performa terbaik, yaitu Random Forest, XGBoost, dan AdaBoost, yang masing-masing mencapai akurasi sebesar 0.80. Visualisasi ini disajikan dalam bentuk heatmap untuk memberikan gambaran lebih jelas mengenai seberapa baik model memprediksi setiap kelas.
+
+* Random Forest dan XGBoost menunjukkan pola yang sama, yaitu mampu memprediksi seluruh data dari kelas 0 dengan benar (80 data), namun gagal mengklasifikasikan kelas 1, yang semuanya diprediksi sebagai kelas 0 (20 data salah prediksi). Hal ini mengindikasikan adanya *class imbalance* atau ketidakseimbangan data antar kelas.
+
+* AdaBoost menunjukkan performa yang sedikit lebih baik dalam mengidentifikasi kelas 1, dengan 2 data berhasil diprediksi benar sebagai kelas 1. Meskipun jumlah kesalahan prediksi masih cukup tinggi (18 data kelas 1 diprediksi sebagai kelas 0), model ini tetap memiliki keunggulan karena dapat mengenali keberadaan kedua kelas dalam data.
+
 # Rencana Pengembangan Sistem Kedepan
 # Kesimpulan
 
