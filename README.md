@@ -135,10 +135,63 @@ Dataset yang digunakan dalam proyek ini merupakan dataset dummy yang dibuat seca
 - Kolom `status_do` menjadi variabel target untuk model klasifikasi dalam memprediksi risiko drop out mahasiswa.
 
 # 4. Univariate Data Analysis
-## Memisahkan Kolom Kategorikal dan Numerik
-## Analisis Variabel Kategorikal
-## Analisis Variabel Numerikal
+## 📊 Memisahkan Kolom Kategorikal dan Numerik
+
+Langkah awal dalam eksplorasi data adalah memisahkan fitur berdasarkan tipe datanya:
+
+- **Kolom Numerik**: Berisi angka yang bisa dihitung secara statistik.
+  Contoh: `ipk_semester_1`, `frekuensi_login_lms`, `penghasilan_orang_tua`, dll.
+- **Kolom Kategorikal**: Berisi kategori atau label diskrit (biasanya dalam bentuk teks atau nilai diskrit).
+  Contoh: `status_pekerjaan`, `beasiswa`, `status_do`.
+
+Pemilahan ini berguna untuk:
+- Melakukan analisis statistik sesuai tipe data.
+- Menentukan proses preprocessing seperti encoding untuk kategorikal data.
+
+## 📋 Analisis Variabel Kategorikal
+
+Analisis dilakukan terhadap kolom-kolom seperti:
+- `status_pekerjaan`: `full_time`, `paruh_waktu`, `tidak_bekerja`
+- `beasiswa`: `ya`, `tidak`
+- `status_do`: `0` (tidak DO), `1` (DO)
+
+Hal yang dianalisis:
+- **Distribusi kategori**: seberapa banyak data pada masing-masing kategori.
+- **Visualisasi**: bar chart atau pie chart untuk mempermudah interpretasi.
+- **Kaitan dengan variabel target**: apakah suatu kategori berpengaruh terhadap DO?
+
+Tujuannya adalah untuk mengetahui pola yang tersembunyi dalam kelompok-kelompok data ini.
+
+## 📈 Analisis Variabel Numerikal
+
+Variabel numerik seperti:
+- IPK per semester: `ipk_semester_1` s.d. `ipk_semester_8`
+- Kehadiran per mata kuliah
+- `frekuensi_login_lms`, `waktu_akses_materi`, `penghasilan_orang_tua`, dll.
+
+Analisis yang dilakukan:
+- **Statistik deskriptif**: nilai rata-rata, median, minimum, maksimum, standar deviasi.
+- **Visualisasi**: histogram, boxplot, density plot untuk melihat distribusi dan outlier.
+- **Korelasi**: mencari hubungan antar variabel, atau antara variabel dengan `status_do`.
+
+Tujuannya adalah untuk memahami distribusi nilai dan pola hubungan antar fitur numerik.
+
 ## Analisis Variabel Target
+
+Variabel target dalam dataset ini adalah: `status_do`
+- Nilai `0` → Mahasiswa **tidak DO**
+- Nilai `1` → Mahasiswa **drop out (DO)**
+
+Analisis yang dilakukan:
+- **Distribusi kelas**: apakah data seimbang antara yang DO dan tidak DO?
+- **Hubungan dengan fitur lain**:
+  - Apakah IPK rendah cenderung menyebabkan DO?
+  - Bagaimana pengaruh kehadiran dan interaksi di LMS terhadap DO?
+  - Apakah mahasiswa yang bekerja memiliki risiko lebih tinggi untuk DO?
+
+Tujuan akhir dari analisis ini adalah:
+- Mengetahui pola-pola yang mengarah ke DO.
+- Menyusun fitur penting yang digunakan dalam pembuatan model prediksi DO.
 
 # 5. Data Preprocessing
 ## Normalisasi
@@ -147,18 +200,8 @@ Dataset yang digunakan dalam proyek ini merupakan dataset dummy yang dibuat seca
 
 # 6. Modelling
 # 7. Evaluasi Model
-
-# Analisis Hasil dan Relevansi terhadap Business Understanding
-
-## Relevansi terhadap Business Goals
-
-## Problem Statement
-
-## Target Solusi
-
-## Dampak Solusi
-
-## Kesimpulan
+# 8. Rencana Pengembangan Sistem Kedepan
+# Kesimpulan
 
 
 
