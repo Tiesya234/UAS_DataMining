@@ -114,7 +114,7 @@ Dataset yang digunakan dalam proyek ini merupakan dataset dummy yang dibuat seca
 | 26   | beasiswa                    | object    | Status penerima beasiswa (Ya/Tidak)                                                              |
 | 27   | status_do                   | int64     | Target variabel: status drop out mahasiswa (1 = berisiko drop out, 0 = tidak)                     |
 
-## Contoh Datanya
+## Contoh Data
 
 | nim       | ipk_semester_1 | ipk_semester_2 | ipk_semester_3 | ipk_semester_4 | ipk_semester_5 | ipk_semester_6 | ipk_semester_7 | ipk_semester_8 | kehadiran_basis_data | kehadiran_pemrograman_web | kehadiran_kalkulus | kehadiran_matematika_diskrit | kehadiran_machine_learning | basis_data_ulang | pemrograman_web_ulang | kalkulus_ulang | matematika_diskrit_ulang | machine_learning_ulang | frekuensi_login_lms | waktu_akses_materi | partisipasi_forum | status_pekerjaan | jam_kerja_per_minggu | penghasilan_orang_tua | jumlah_tanggungan_keluarga | beasiswa | status_do |
 |-----------|----------------|----------------|----------------|----------------|----------------|----------------|----------------|----------------|----------------------|---------------------------|--------------------|-----------------------------|----------------------------|------------------|-----------------------|----------------|--------------------------|-----------------------|---------------------|--------------------|-------------------|-----------------|-----------------------|-----------------------|----------------------------|----------|-----------|
@@ -133,3 +133,17 @@ Dataset yang digunakan dalam proyek ini merupakan dataset dummy yang dibuat seca
 - Aktivitas di LMS dan forum menunjukkan tingkat partisipasi dan penggunaan sumber belajar online.
 - Variabel sosial ekonomi seperti status pekerjaan, jam kerja, penghasilan orang tua, dan beasiswa juga dimasukkan untuk memperkaya analisis risiko drop out.
 - Kolom `status_do` menjadi variabel target untuk model klasifikasi dalam memprediksi risiko drop out mahasiswa.
+
+# 4. Univariate Data Analysis
+## Memisahkan Kolom Kategorikal dan Numerik
+## Analisis Variabel Kategorikal
+## Analisis Variabel Numerikal
+## Analisis Variabel Target
+
+# 5. Data Preprocessing
+## Normalisasi
+## Encoding
+## Feature Selection
+
+# 6. Modelling
+# 7. Evaluasi Model
