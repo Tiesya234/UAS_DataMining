@@ -322,11 +322,11 @@ Berdasarkan evaluasi dengan syarat `if metrics["Accuracy"] >= 0.80`, terdapat ti
 
 Ketiga model tersebut lolos seleksi awal karena memiliki nilai akurasi ≥ 0.80. Namun, dari ketiga model tersebut, AdaBoost merupakan yang paling stabil dan optimal karena memiliki nilai precision dan f1-score tertinggi. Hal ini menunjukkan bahwa model ini lebih baik dalam menangani keseimbangan antara false positives dan false negatives.
 
-4. Visualisasi Confusion Matrix
+### 4. Visualisasi Confusion Matrix
 
 Visualisasi confusion matrix dilakukan terhadap tiga model dengan performa terbaik, yaitu Random Forest, XGBoost, dan AdaBoost, yang masing-masing mencapai akurasi sebesar 0.80. Visualisasi ini disajikan dalam bentuk heatmap untuk memberikan gambaran lebih jelas mengenai seberapa baik model memprediksi setiap kelas.
 
-* Random Forest dan XGBoost menunjukkan pola yang sama, yaitu mampu memprediksi seluruh data dari kelas 0 dengan benar (80 data), namun gagal mengklasifikasikan kelas 1, yang semuanya diprediksi sebagai kelas 0 (20 data salah prediksi). Hal ini mengindikasikan adanya *class imbalance* atau ketidakseimbangan data antar kelas.
+* Random Forest dan XGBoost menunjukkan pola yang sama, yaitu mampu memprediksi seluruh data dari kelas 0 dengan benar (80 data), namun gagal mengklasifikasikan kelas 1, yang semuanya diprediksi sebagai kelas 0 (20 data salah prediksi). Hal ini mengindikasikan adanya class imbalance atau ketidakseimbangan data antar kelas.
 
 * AdaBoost menunjukkan performa yang sedikit lebih baik dalam mengidentifikasi kelas 1, dengan 2 data berhasil diprediksi benar sebagai kelas 1. Meskipun jumlah kesalahan prediksi masih cukup tinggi (18 data kelas 1 diprediksi sebagai kelas 0), model ini tetap memiliki keunggulan karena dapat mengenali keberadaan kedua kelas dalam data.
 
