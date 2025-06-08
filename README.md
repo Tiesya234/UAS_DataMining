@@ -65,11 +65,6 @@ Proyek ini menggunakan pendekatan metode data mining berbasis **CRISP-DM (Cross-
 5. **Evaluation**  
    Mengevaluasi performa model menggunakan metrik seperti Accuracy, Precision, Recall, F1-Score, dan Confusion Matrix untuk memastikan model dapat mengidentifikasi mahasiswa berisiko secara akurat.
 
-6. **Deployment**  
-   Model terbaik yang telah melalui proses testing akan dikembangkan menjadi sistem berbasis web atau dashboard yang dapat digunakan oleh pihak kampus untuk mendukung pengambilan keputusan.
-
-Dengan mengikuti metode CRISP-DM ini, proyek diharapkan dapat menghasilkan sistem prediksi yang handal dan membantu institusi pendidikan dalam meningkatkan layanan akademik serta mengurangi angka drop out mahasiswa.
-
 # Data Understanding
 
 Dataset yang digunakan dalam proyek ini merupakan dataset dummy yang dibuat secara khusus untuk mendukung pengembangan sistem prediksi mahasiswa berisiko tinggi drop out. Dataset ini berisi informasi akademik, kehadiran, aktivitas belajar, serta kondisi sosial ekonomi mahasiswa.
