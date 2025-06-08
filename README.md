@@ -59,12 +59,12 @@ Proyek ini menggunakan pendekatan metode data mining berbasis **CRISP-DM (Cross-
 4. **Modeling**  
    Pada tahap modeling, dilakukan pembangunan model prediksi untuk mengidentifikasi mahasiswa yang berisiko mengalami drop out menggunakan beberapa algoritma klasifikasi dengan pendekatan dan keunggulan berbeda. Enam model yang dipilih adalah sebagai berikut:
 
-* Random Forest: Metode ensemble berbasis pohon keputusan yang efektif untuk data berdimensi tinggi dan mampu mengatasi missing value.
-* XGBoost (Extreme Gradient Boosting): Teknik boosting yang memperbaiki kelemahan model iterasi sebelumnya dengan hasil akurasi tinggi dan kemampuan pengendalian overfitting.
-* K-Nearest Neighbors (KNN): Algoritma berbasis instance yang memprediksi kelas berdasarkan kedekatan data tetangga terdekat dalam ruang fitur.
-* Decision Tree: Model pohon keputusan yang sederhana dan mudah diinterpretasikan, tetapi rentan terhadap overfitting.
-* Gradient Boosting: Teknik boosting yang menggabungkan beberapa model pohon keputusan lemah untuk menghasilkan model kuat dengan akurasi tinggi.
-* AdaBoost (Adaptive Boosting): Teknik boosting yang memfokuskan pembelajaran pada data yang sulit diklasifikasikan sebelumnya, berguna untuk menangani data minoritas.
+  * Random Forest: Metode ensemble berbasis pohon keputusan yang efektif untuk data berdimensi tinggi dan mampu mengatasi missing value.
+  * XGBoost (Extreme Gradient Boosting): Teknik boosting yang memperbaiki kelemahan model iterasi sebelumnya dengan hasil akurasi tinggi dan kemampuan pengendalian overfitting.
+  * K-Nearest Neighbors (KNN): Algoritma berbasis instance yang memprediksi kelas berdasarkan kedekatan data tetangga terdekat dalam ruang fitur.
+  * Decision Tree: Model pohon keputusan yang sederhana dan mudah diinterpretasikan, tetapi rentan terhadap overfitting.
+  * Gradient Boosting: Teknik boosting yang menggabungkan beberapa model pohon keputusan lemah untuk menghasilkan model kuat dengan akurasi tinggi.
+  * AdaBoost (Adaptive Boosting): Teknik boosting yang memfokuskan pembelajaran pada data yang sulit diklasifikasikan sebelumnya, berguna untuk menangani data minoritas.
 
 Setiap model diinisialisasi dengan parameter dasar dan menggunakan `random_state` untuk memastikan hasil yang reproducible.
 
