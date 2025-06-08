@@ -193,9 +193,42 @@ Tujuan akhir dari analisis ini adalah:
 - Menyusun fitur penting yang digunakan dalam pembuatan model prediksi DO.
 
 # Data Preprocessing
-## Normalisasi
-## Encoding
-## Feature Selection
+
+Pada tahap ini, dilakukan serangkaian proses prapemrosesan data untuk mempersiapkan dataset agar dapat digunakan dalam pemodelan machine learning. Tahapan preprocessing terdiri dari tiga langkah utama, yaitu normalisasi, encoding, dan feature selection. Berikut penjelasan masing-masing tahapannya:
+
+## 1. Normalisasi
+
+Langkah pertama dalam preprocessing adalah normalisasi data numerik. Normalisasi dilakukan untuk menyeragamkan skala nilai pada seluruh kolom numerik agar berada dalam rentang 0 hingga 1. Proses ini penting karena beberapa algoritma machine learning, seperti Support Vector Machine (SVM) atau K-Nearest Neighbors (KNN), sangat sensitif terhadap perbedaan skala antar fitur.
+
+Normalisasi dilakukan menggunakan teknik Min-Max Scaling, yang mengubah nilai minimum menjadi 0 dan nilai maksimum menjadi 1. Contohnya, kolom seperti `ipk_semester_1` yang sebelumnya memiliki rentang nilai 2.80–3.90, setelah normalisasi menjadi 0.15–0.95. Tahapan ini hanya diterapkan pada fitur numerik, sementara fitur kategorikal belum mengalami perubahan pada tahap ini.
+
+## 2. Encoding
+
+Setelah proses normalisasi, tahap berikutnya adalah mengubah data kategorikal menjadi data numerik agar dapat diproses oleh model machine learning.
+
+* Kolom `status_pekerjaan` yang bersifat kategorikal diubah menjadi bentuk numerik menggunakan teknik One-Hot Encoding. Hasilnya adalah muncul beberapa kolom baru yang merepresentasikan setiap kategori pekerjaan (misalnya, `pekerjaan_full_time`, `pekerjaan_paruh_waktu`, dan `pekerjaan_tidak_bekerja`). Setiap baris hanya memiliki satu nilai "1" pada salah satu kolom tersebut sesuai status pekerjaan mahasiswa.
+
+* Kolom `beasiswa` diubah menggunakan teknik Label Encoding, di mana nilai "ya" dikonversi menjadi 1 dan "tidak" menjadi 0.
+
+Dengan proses encoding ini, seluruh fitur dalam dataset telah dikonversi menjadi bentuk numerik dan siap digunakan dalam pelatihan model.
+
+## 3. Feature Selection
+
+Tahap terakhir dari preprocessing adalah feature selection untuk menentukan fitur-fitur mana yang paling relevan dalam memprediksi status DO mahasiswa. Teknik yang digunakan adalah SelectKBest dengan metode f\_classif (ANOVA F-test), yang mengevaluasi tingkat pengaruh masing-masing fitur terhadap variabel target (`status_do`).
+
+Seluruh fitur dievaluasi dan diberikan skor berdasarkan pengaruhnya. Kemudian ditentukan threshold skor minimal sebesar 1.0. Fitur-fitur yang memiliki skor di atas atau sama dengan threshold dianggap signifikan dan dipilih untuk proses selanjutnya.
+
+Fitur yang terpilih berdasarkan hasil seleksi adalah:
+
+* `penghasilan_orang_tua`
+* `ipk_semester_1`
+* `ipk_semester_6`
+* `ipk_semester_8`
+* `kalkulus_ulang`
+* `pemrograman_web_ulang`
+* `jumlah_tanggungan_keluarga`
+
+Fitur-fitur ini mencerminkan bahwa baik faktor akademik (seperti IPK dan pengulangan mata kuliah) maupun faktor sosial-ekonomi (seperti penghasilan dan tanggungan keluarga) memiliki peran penting dalam menentukan potensi mahasiswa untuk mengalami DO. Pemilihan fitur ini bertujuan untuk meningkatkan akurasi model sekaligus mengurangi kompleksitas komputasi.
 
 # Modelling
 # Evaluasi Model
