@@ -147,3 +147,18 @@ Dataset yang digunakan dalam proyek ini merupakan dataset dummy yang dibuat seca
 
 # 6. Modelling
 # 7. Evaluasi Model
+
+# Analisis Hasil dan Relevansi terhadap Business Understanding
+
+## Relevansi terhadap Business Goals
+
+## Problem Statement
+
+## Target Solusi
+
+## Dampak Solusi
+
+## Kesimpulan
+
+
+
