@@ -192,14 +192,14 @@ Tujuan akhir dari analisis ini adalah:
 - Mengetahui pola-pola yang mengarah ke DO.
 - Menyusun fitur penting yang digunakan dalam pembuatan model prediksi DO.
 
-# 5. Data Preprocessing
+# Data Preprocessing
 ## Normalisasi
 ## Encoding
 ## Feature Selection
 
-# 6. Modelling
-# 7. Evaluasi Model
-# 8. Rencana Pengembangan Sistem Kedepan
+# Modelling
+# Evaluasi Model
+# Rencana Pengembangan Sistem Kedepan
 # Kesimpulan
 
 
