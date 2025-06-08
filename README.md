@@ -5,7 +5,7 @@
 2. Tiesya Andriani Ramadhanti (G1A022014)  
 3. Imelda Cyntia (G1A022022)  
 
-# 1. Project Overview
+# Project Overview
 ## Latar Belakang
 
 Dalam era digital saat ini, tantangan dalam dunia pendidikan tinggi semakin kompleks, salah satunya adalah meningkatnya angka mahasiswa yang tidak menyelesaikan studi atau mengalami putus kuliah (*drop out*). Permasalahan ini dapat berdampak buruk, baik bagi mahasiswa itu sendiri maupun bagi institusi pendidikan. Mahasiswa yang *drop out* kehilangan waktu, biaya, dan kesempatan, sedangkan institusi mengalami penurunan angka retensi dan citra akademik.
@@ -30,7 +30,6 @@ Dengan adanya sistem ini, diharapkan institusi pendidikan dapat meningkatkan ang
 - Alfiana, A. S., & Rahmadani, L. (2023). *Prediksi Mahasiswa Drop Out Menggunakan Algoritma Decision Tree C4.5*. Jurnal Informatika Upgris (JIU), 9(1), 40–48. https://journal.upgris.ac.id/index.php/JIU/article/view/8023  
 - Mduma, N., Kalegele, K., & Machuve, D. (2019). *A Survey of Machine Learning Approaches and Techniques for Student Dropout Prediction*. Data Science Journal, 18:14. https://doi.org/10.5334/dsj-2019-014
 
-# 2. Bussiness Understanding
 ## Business Understanding
 
 ### Problem Statement
@@ -71,7 +70,7 @@ Proyek ini menggunakan pendekatan metode data mining berbasis **CRISP-DM (Cross-
 
 Dengan mengikuti metode CRISP-DM ini, proyek diharapkan dapat menghasilkan sistem prediksi yang handal dan membantu institusi pendidikan dalam meningkatkan layanan akademik serta mengurangi angka drop out mahasiswa.
 
-# 3. Data Understanding
+# Data Understanding
 
 Dataset yang digunakan dalam proyek ini merupakan dataset dummy yang dibuat secara khusus untuk mendukung pengembangan sistem prediksi mahasiswa berisiko tinggi drop out. Dataset ini berisi informasi akademik, kehadiran, aktivitas belajar, serta kondisi sosial ekonomi mahasiswa.
 
@@ -134,8 +133,8 @@ Dataset yang digunakan dalam proyek ini merupakan dataset dummy yang dibuat seca
 - Variabel sosial ekonomi seperti status pekerjaan, jam kerja, penghasilan orang tua, dan beasiswa juga dimasukkan untuk memperkaya analisis risiko drop out.
 - Kolom `status_do` menjadi variabel target untuk model klasifikasi dalam memprediksi risiko drop out mahasiswa.
 
-# 4. Univariate Data Analysis
-## 📊 Memisahkan Kolom Kategorikal dan Numerik
+# Univariate Data Analysis
+## Memisahkan Kolom Kategorikal dan Numerik
 
 Langkah awal dalam eksplorasi data adalah memisahkan fitur berdasarkan tipe datanya:
 
@@ -148,7 +147,7 @@ Pemilahan ini berguna untuk:
 - Melakukan analisis statistik sesuai tipe data.
 - Menentukan proses preprocessing seperti encoding untuk kategorikal data.
 
-## 📋 Analisis Variabel Kategorikal
+## Analisis Variabel Kategorikal
 
 Analisis dilakukan terhadap kolom-kolom seperti:
 - `status_pekerjaan`: `full_time`, `paruh_waktu`, `tidak_bekerja`
@@ -162,7 +161,7 @@ Hal yang dianalisis:
 
 Tujuannya adalah untuk mengetahui pola yang tersembunyi dalam kelompok-kelompok data ini.
 
-## 📈 Analisis Variabel Numerikal
+## Analisis Variabel Numerikal
 
 Variabel numerik seperti:
 - IPK per semester: `ipk_semester_1` s.d. `ipk_semester_8`
